@@ -1,0 +1,118 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 130px;
+    background-color: #3399CC;
+    align-items: center;
+    place-content: center;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 50px;
+}
+
+.titulo{
+    border-radius: 16px;
+    background-color: white;
+    height: 70%;
+    width: 300px;
+    display: flex;
+    place-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 15px;
+}
+.silhueta{
+    height: 130px;
+}
+.texto-principal{
+    font-size: 1.5rem;
+    font-weight: 15;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.campo{
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 600px;
+    height: 45px;
+    border-radius: 28px;
+    border: none;
+    text-align: center;
+    font-size: 1.6rem;
+}
+.campo:focus{
+    outline: none;
+}
+::-webkit-input-placeholder {
+    color: #e3e3e3;
+}
+.pesquisar{
+    height: 40px;
+    width: 200px;
+    font-size: 1.5rem;
+    border-radius: 16px;
+    outline-color: black;
+}
+
+/* -------------------------------------------- */
+main{
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.selecao{
+    place-self: center;
+    display: flex;
+    gap: 30px;
+    background-color: #54d4f7;
+    place-content: center;
+    width: 500px;
+    height: 50px;
+    align-items: center;
+    border-radius: 16px;
+}
+.texto-escolha{
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 10;
+}
+.container{
+    place-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 150px;
+}
+.imagem{
+    background-color: #8cd5f5;
+    padding: 30px;
+}
+/* -------------------------------------------- */
+footer{
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    color: white;
+    background-color: black;
+    align-items: center;
+    place-content: center;
+    text-align: center;
+}
+.texto-footer{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 10;
+    font-size: 1.5rem;
+}
