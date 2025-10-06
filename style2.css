@@ -3,13 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 body{
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
-
 header{
     display: flex;
     flex-direction: row;
@@ -18,21 +16,18 @@ header{
     background-color: #3399CC;
     align-items: center;
     place-content: center;
-    justify-content: space-between;
     padding-left: 30px;
     padding-right: 50px;
 }
-
 .titulo{
     border-radius: 16px;
     background-color: white;
     height: 70%;
-    width: 300px;
+    width: 650px;
     display: flex;
     place-content: center;
-    justify-content: space-between;
     align-items: center;
-    padding-right: 15px;
+    justify-content: space-between;
 }
 .silhueta{
     height: 130px;
@@ -41,68 +36,71 @@ header{
     font-size: 1.5rem;
     font-weight: 15;
     font-family: Arial, Helvetica, sans-serif;
-}
-.campo{
-    padding-left: 25px;
-    padding-right: 25px;
-    width: 600px;
-    height: 45px;
-    border-radius: 28px;
-    border: none;
-    text-align: center;
-    font-size: 1.6rem;
-}
-.campo:focus{
-    outline: none;
-}
-::-webkit-input-placeholder {
-    color: #e3e3e3;
-}
-.pesquisar{
-    height: 40px;
-    width: 200px;
-    font-size: 1.5rem;
-    border-radius: 16px;
-    outline-color: black;
+    padding-right: 30px;
 }
 
-/* -------------------------------------------- */
+/*-----------------------------------------*/
+/* main */
+
 main{
     display: flex;
     flex-direction: column;
-    padding-top: 30px;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-.selecao{
-    place-self: center;
-    display: flex;
-    gap: 30px;
-    background-color: #54d4f7;
     place-content: center;
-    width: 500px;
-    height: 50px;
-    align-items: center;
-    border-radius: 16px;
-}
-.texto-escolha{
-    font-size: 1.8rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 10;
-}
-.container{
-    place-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 100px;
-    padding-bottom: 50px;
-}
-.imagem{
-    background-color: #8cd5f5;
     padding: 30px;
-    border-radius: 16px;
+    align-items: center;
 }
-/* -------------------------------------------- */
+.principal{
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    align-items: center;
+    gap: 100px;
+    background-color: #ff3d3d;
+    width: 70%;
+    height: 630px;
+    padding: 30px;
+    border-radius: 72px;
+    
+}
+.personagem{
+    height: auto;
+    width: 300px;
+}
+.desc{
+    height: 370px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 0.65rem;
+}
+
+.botao{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+}
+
+.voltar{
+    background-color: white;
+    height: 50px;
+    width: 160px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+    align-items: center;
+}
+p{
+    width: 60px;
+}
+.seta{
+    height: 20px;
+    width: auto;
+}
+
+/*-----------------------------------------*/
+
 footer{
     display: flex;
     flex-direction: row;
