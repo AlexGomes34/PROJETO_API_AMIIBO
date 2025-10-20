@@ -75,8 +75,10 @@ main{
     gap: 30px;
 }
 .selecao{
+    padding-left: 10px;
     place-self: center;
     display: flex;
+    margin-left: 80px;
     gap: 30px;
     background-color: #54d4f7;
     place-content: center;
@@ -85,7 +87,7 @@ main{
     align-items: center;
     border-radius: 16px;
 }
-.texto-escolha{
+.texto{
     font-size: 1.8rem;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 10;
@@ -101,12 +103,20 @@ main{
     background-color: #8cd5f5;
     padding: 30px;
     border-radius: 16px;
+    place-content: center;
+}
+.img{
+    place-self: center;
+    height: auto;
+    width: 200px;
 }
 /* -------------------------------------------- */
 footer{
+    padding: 30px;
     display: flex;
     flex-direction: row;
-    height: 80px;
+    height: 90px;
+    width: 100%;
     color: white;
     background-color: black;
     align-items: center;
