@@ -14,6 +14,7 @@ const buscarDadosApi = async function(characterName){
     return dados
 }
 
+
 buscarDadosApi()
 
 const criarElementosHtml = async function(dados){
@@ -34,15 +35,15 @@ const criarElementosHtml = async function(dados){
     img.classList.add('img')
 
     img.addEventListener('click', async function(){
-        criarElementosHtml2()
+        main.textContent = ''
+        criarElementosHtml2(dados)
     })
 
 
 }
 
 const criarElementosHtml2 = async function (dados) {
-    main.textContent = ''
-
+    
     const principal = document.createElement('div')
     const imagem2 = document.createElement('div')
     const desc = document.createElement('div')
@@ -61,8 +62,57 @@ const criarElementosHtml2 = async function (dados) {
     descricao.classList.add('descricao')
     botao.classList.add('botao')
     voltar.classList.add('voltar')
+    volta.classList.add('volta')
     seta.classList.add('seta')
 
+    personagem.src = dados.image
+    descricao.innerHTML = `Amiibo Series: ${dados.amiiboSeries} <br>
+    <br> Name: ${dados.name} <br>
+    <br> Game Series: ${dados.gameSeries} <br>
+    <br> Type: ${dados.type}`
+
+    volta.innerHTML = 'VOLTAR'
+    seta.src = 'img/Vector.svg'
+
+
+    main.append(principal, botao)
+    principal.append(imagem2, desc)
+    imagem2.appendChild(personagem)
+    desc.appendChild(descricao)
+    botao.appendChild(voltar)
+    voltar.append(volta, seta)
+
+    voltar.addEventListener('click', async () =>{
+        main.textContent = ''
+
+    selecao.textContent = ''
+    const escolha = document.createElement('h1')
+    escolha.textContent = `Personagem escolhido: ${campoPesquisa.value}`
+    escolha.classList.add('texto')
+    selecao.appendChild(escolha)
+
+
+    const imagens = await buscarDadosApi(campoPesquisa.value)
+    container.textContent = ''
+    imagens.amiibo.forEach(img => criarElementosHtml(img))
+    })
+
+    campoPesquisa.addEventListener('keydown', async(evento) =>{
+    if(evento.key === 'Enter' || evento.keyCode === 13){
+        main.textContent = ''
+
+        selecao.textContent = ''
+        const escolha = document.createElement('h1')
+        escolha.textContent = `Personagem escolhido: ${campoPesquisa.value}`
+        escolha.classList.add('texto')
+        selecao.appendChild(escolha)
+
+
+        const imagens = await buscarDadosApi(campoPesquisa.value)
+        container.textContent = ''
+        imagens.amiibo.forEach(img => criarElementosHtml(img))
+    }
+}) 
 
 }
 
@@ -83,16 +133,16 @@ campoPesquisa.addEventListener('keydown', async(evento) =>{
 }) 
 
 btnPesquisa.addEventListener('click', async () => {
+    main.textContent = ''
 
-    // selecao.textContent = ''
-    // const escolha = document.createElement('h1')
-    // escolha.textContent = `Personagem escolhido: ${campoPesquisa.value}`
-    // escolha.classList.add('texto')
-    // selecao.appendChild(escolha)
+    selecao.textContent = ''
+    const escolha = document.createElement('h1')
+    escolha.textContent = `Personagem escolhido: ${campoPesquisa.value}`
+    escolha.classList.add('texto')
+    selecao.appendChild(escolha)
 
 
-    // const imagens = await buscarDadosApi(campoPesquisa.value)
-    // container.textContent = ''
-    // imagens.amiibo.forEach(img => criarElementosHtml(img))
-    criarElementosHtml2()
+    const imagens = await buscarDadosApi(campoPesquisa.value)
+    container.textContent = ''
+    imagens.amiibo.forEach(img => criarElementosHtml(img))
 })

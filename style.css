@@ -110,6 +110,66 @@ main{
     height: auto;
     width: 200px;
 }
+
+/* style 2 */
+
+.main2{
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    padding: 30px;
+    align-items: center;
+}
+.principal{
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    align-items: center;
+    gap: 100px;
+    background-color: #ff3d3d;
+    width: 70%;
+    height: 630px;
+    padding: 30px;
+    border-radius: 72px;
+    
+}
+.personagem{
+    height: auto;
+    width: 300px;
+}
+.descricao{
+    height: 370px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.botao{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+}
+
+.voltar{
+    background-color: white;
+    height: 50px;
+    width: 160px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+    align-items: center;
+}
+.volta{
+    width: 60px;
+}
+.seta{
+    height: 20px;
+    width: auto;
+}
+
 /* -------------------------------------------- */
 footer{
     padding: 30px;
