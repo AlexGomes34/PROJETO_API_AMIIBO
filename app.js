@@ -10,6 +10,14 @@ const buscarDadosApi = async function(characterName){
     const url = `https://www.amiiboapi.com/api/amiibo/?character=${characterName}`
     const response = await fetch(url)
     const dados = await response.json()
+    // console.log(dados)
+    return dados
+}
+
+const buscarDadosApiByAmiiboSeries = async function(seriesName){
+    const url = `https://www.amiiboapi.com/api/amiibo/?amiiboSeries=${seriesName}`
+    const response = await fetch(url)
+    const dados = await response.json()
     console.log(dados)
     return dados
 }
@@ -49,10 +57,16 @@ const criarElementosHtml2 = async function (dados) {
     const desc = document.createElement('div')
     const botao = document.createElement('div')
     const personagem = document.createElement('img')
-    const descricao = document.createElement('h1')
+    const descricao = document.createElement('div')
     const voltar = document.createElement('button')
     const volta = document.createElement('p')
     const seta = document.createElement('img')
+    
+    const spanAmiiboSeries = document.createElement('span')
+    const pName = document.createElement('p')
+    const pGame = document.createElement('p')
+    const pType = document.createElement('p')
+    spanAmiiboSeries.classList.add('amiibo-series-link')
 
     main.classList.add('main2')
     principal.classList.add('principal')
@@ -66,21 +80,52 @@ const criarElementosHtml2 = async function (dados) {
     seta.classList.add('seta')
 
     personagem.src = dados.image
-    descricao.innerHTML = `Amiibo Series: ${dados.amiiboSeries} <br>
-    <br> Name: ${dados.name} <br>
-    <br> Game Series: ${dados.gameSeries} <br>
-    <br> Type: ${dados.type}`
+    spanAmiiboSeries.textContent = dados.amiiboSeries
+    pName.innerHTML = `<br>Name: <b>${dados.name}</b> <br><br>`
+    pGame.innerHTML = `Game Series: <b>${dados.gameSeries}</b> <br><br>`
+    pType.innerHTML = `Type: <b>${dados.type}</b>`
 
     volta.innerHTML = 'VOLTAR'
     seta.src = 'img/Vector.svg'
 
+    const pAmiiboSeriesWrapper = document.createElement('p')
+    pAmiiboSeriesWrapper.textContent = 'Amiibo Series: '
+    pAmiiboSeriesWrapper.appendChild(spanAmiiboSeries)
+    descricao.appendChild(pAmiiboSeriesWrapper)
 
     main.append(principal, botao)
     principal.append(imagem2, desc)
     imagem2.appendChild(personagem)
+
     desc.appendChild(descricao)
+    descricao.appendChild(pName)
+    descricao.appendChild(pGame)
+    descricao.appendChild(pType)
+
     botao.appendChild(voltar)
     voltar.append(volta, seta)
+
+    spanAmiiboSeries.addEventListener('click', async function(){
+        const seriesName = dados.amiiboSeries
+        
+        main.textContent = ''
+        selecao.textContent = ''
+        
+        const escolha = document.createElement('h1')
+        escolha.textContent = `Amiibo Series: ${seriesName}`
+        escolha.classList.add('texto')
+        selecao.appendChild(escolha)
+
+        const imagens = await buscarDadosApiByAmiiboSeries(seriesName)
+
+        container.textContent = ''
+        if (imagens.amiibo) {
+            imagens.amiibo.forEach(img => criarElementosHtml(img))
+        } else {
+            container.textContent = 'Nenhum Amiibo encontrado para esta série.'
+        }
+        main.append(selecao, container) 
+    })
 
     voltar.addEventListener('click', async () =>{
         main.textContent = ''
