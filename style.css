@@ -172,14 +172,14 @@ main{
 
 /* style 3 */
 .amiibo-series-link {
-    color: #007bff; /* Uma cor azul para simular um link */
-    cursor: pointer; /* Muda o cursor para indicar interatividade */
-    text-decoration: underline; /* Sublinha o texto */
-    font-weight: bold; /* Opcional: para dar mais destaque */
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 .amiibo-series-link:hover {
-    color: #0056b3; /* Cor mais escura ao passar o mouse */
+    color: gray;
 }
 
 /* -------------------------------------------- */
