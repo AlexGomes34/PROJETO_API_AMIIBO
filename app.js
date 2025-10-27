@@ -10,7 +10,6 @@ const buscarDadosApi = async function(characterName){
     const url = `https://www.amiiboapi.com/api/amiibo/?character=${characterName}`
     const response = await fetch(url)
     const dados = await response.json()
-    // console.log(dados)
     return dados
 }
 
@@ -18,12 +17,11 @@ const buscarDadosApiByAmiiboSeries = async function(seriesName){
     const url = `https://www.amiiboapi.com/api/amiibo/?amiiboSeries=${seriesName}`
     const response = await fetch(url)
     const dados = await response.json()
-    console.log(dados)
     return dados
+
 }
 
 
-buscarDadosApi()
 
 const criarElementosHtml = async function(dados){
 
@@ -46,7 +44,6 @@ const criarElementosHtml = async function(dados){
         main.textContent = ''
         criarElementosHtml2(dados)
     })
-
 
 }
 
@@ -141,23 +138,6 @@ const criarElementosHtml2 = async function (dados) {
     container.textContent = ''
     imagens.amiibo.forEach(img => criarElementosHtml(img))
     })
-
-    campoPesquisa.addEventListener('keydown', async(evento) =>{
-    if(evento.key === 'Enter' || evento.keyCode === 13){
-        main.textContent = ''
-
-        selecao.textContent = ''
-        const escolha = document.createElement('h1')
-        escolha.textContent = `Personagem escolhido: ${campoPesquisa.value}`
-        escolha.classList.add('texto')
-        selecao.appendChild(escolha)
-
-
-        const imagens = await buscarDadosApi(campoPesquisa.value)
-        container.textContent = ''
-        imagens.amiibo.forEach(img => criarElementosHtml(img))
-    }
-}) 
 
 }
 
